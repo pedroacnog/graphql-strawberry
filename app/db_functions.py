@@ -23,11 +23,11 @@ def get_livros():
     result = session.execute(query).scalars().all()
   return result
 
-def create_livros(idade: int, nome: str):
-  person = Pessoa(nome=nome, idade=idade)
+def create_livros(titulo: str, pessoa_id: int):
+    livro = Livro(titulo=titulo, pessoa_id=pessoa_id)
+    with Session(engine) as session:
+      session.add(livro)
+      session.commit()
+      session.refresh(livro)
 
-  with Session(engine) as session:
-    session.add(person)
-    session.commit()
-    session.refresh(person)
-  return person
+    return livro

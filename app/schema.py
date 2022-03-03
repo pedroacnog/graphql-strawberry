@@ -25,7 +25,7 @@ class Query:
 @strawberry.type
 class Mutation:
   create_pessoa: Pessoa  = strawberry.field(resolver=create_pessoas)
-  create_livro: Livro  = strawberry.field(resolver=create_livros)
+  create_livro: Livro = strawberry.field(resolver=create_livros)
 
 
 schema = strawberry.Schema(
