@@ -1,4 +1,5 @@
 from sqlmodel import Session, select
+from sqlalchemy.orm import joinedload
 from models import Pessoa, Livro, engine
 
 def create_pessoas(idade: int, nome: str):
@@ -18,9 +19,13 @@ def get_pessoas():
 
 
 def get_livros():
-  query = select(Livro)
+  query = select(Livro).options(joinedload('*'))
   with Session(engine) as session:
-    result = session.execute(query).scalars().all()
+    result = session.execute(query).scalars().unique().all()
+    # Force eager
+    
+    # Não Faça isso
+
   return result
 
 def create_livros(titulo: str, pessoa_id: int):
