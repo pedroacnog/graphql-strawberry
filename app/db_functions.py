@@ -11,8 +11,14 @@ def create_pessoas(idade: int, nome: str):
     session.refresh(person)
   return person
 
-def get_pessoas():
+def get_pessoas(
+  id : int = None
+):
   query = select(Pessoa)
+  
+  if id:
+    query = query.where(Pessoa.id == id)
+
   with Session(engine) as session:
     result = session.execute(query).scalars().all()
   return result
@@ -22,9 +28,8 @@ def get_livros():
   query = select(Livro).options(joinedload('*'))
   with Session(engine) as session:
     result = session.execute(query).scalars().unique().all()
-    # Force eager
     
-    # Não Faça isso
+
 
   return result
 
