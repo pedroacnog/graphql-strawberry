@@ -2,7 +2,7 @@
 
 Projeto realizado para colocar em pratica os conceitos do GraphQL, projeto bem simples porem abrange bastante do que vem sendo utilizado  em projetos com essa tecnologia.
 
-Além de aprender sobre o GraphQL em sí, acabei conhecendo algumas novas bibliotecas revendo algumas que ja tenho conhecimento.
+Além de aprender sobre o GraphQL em sí, acabei conhecendo algumas novas bibliotecas e revendo algumas que ja tenho conhecimento.
 
 Aqui estão as principais bibliotecas utilizadas no desenvolvimento do projeto. 
 
